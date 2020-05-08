@@ -1,5 +1,5 @@
 # docnt-ngpm
-Docker Compose configuration files for nginx-php-mariadb container
+Docker Compose configuration files for [nginx](https://unit.nginx.org/)-[php](https://www.php.net/)-[mariadb](https://mariadb.org/) container
 
 ## My Setup
 
@@ -12,6 +12,12 @@ Docker Compose configuration files for nginx-php-mariadb container
 **mariaDB**: 10.3.9  
 
 ¯\\\_(ツ)\_/¯
+
+## ToDo (before first time running of `docker-compose`)
+
+change DB Password on `docker/docker-compose.yml`, line 42:
+
+   `MYSQL_PASSWORD=secret`
 
 ## see also
 my corresponding [Blog-Article](http://mysolutions.blog.lederich.de/2018/10/03/einen-webserver-mit-docker-toolbox-erstellen/) or [Docker Cheat Sheet](https://github.com/dele1972/my-Docker-Cheat-Sheet) and the official [Docker Tools overview](https://docs.docker.com/toolbox/overview/)
