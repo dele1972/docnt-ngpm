@@ -16,3 +16,21 @@ Docker Compose configuration files for nginx-php-mariadb container
 ## see also
 my corresponding [Blog-Article](http://mysolutions.blog.lederich.de/2018/10/03/einen-webserver-mit-docker-toolbox-erstellen/) or [Docker Cheat Sheet](https://github.com/dele1972/my-Docker-Cheat-Sheet) and the official [Docker Tools overview](https://docs.docker.com/toolbox/overview/)
   
+### Docker Installation (Linux)
+
+1. `sudo apt-get update && sudo apt-get upgrade`
+2. `sudo apt install docker docker-compose`
+3. `sudo apt autoremove`
+   - optional
+4. `docker image ls`
+   - to check a known failure/bug; if this error occurs `n/docker.sock: connect: permission denied`:
+
+   4.1 `sudo groupadd docker`
+
+   4.2 `sudo usermod -aG docker $USER`
+      - add current user to group docker
+
+   4.3 `newgrp docker`
+
+   4.4 `docker image ls`
+      - check if the fix works
