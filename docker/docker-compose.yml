@@ -35,6 +35,10 @@ services:
   mysql:
     build:
       context: ./mysql
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --skip-character-set-client-handshake
     #set environment vars for mysql server              !!! change passwords !!!
     environment:
       - MYSQL_DATABASE=mysqldb
@@ -45,3 +49,5 @@ services:
       - "3306:3306"
     volumes:
       - ./mysql/data.sql:/docker-entrypoint-initdb.d/data.sql
+      # decomment the following line to store DB persistant on local ../data/mysql folder
+      # - ../data/mysql:/var/lib/mysql

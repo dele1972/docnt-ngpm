@@ -7,17 +7,17 @@
 -- Table structure for table `tblDockerSample`
 --
 
-DROP TABLE IF EXISTS `tblDockerSample`;
-CREATE TABLE `tblDockerSample` (
+DROP TABLE IF EXISTS `mysqldb`.`tblDockerSample`;
+CREATE TABLE `mysqldb`.`tblDockerSample` (
   `firstname` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `dockerSample`
 --
 
-LOCK TABLES `tblDockerSample` WRITE;
+LOCK TABLES `mysqldb`.`tblDockerSample` WRITE;
 /*!40000 ALTER TABLE `tblDockerSample` DISABLE KEYS */;
-INSERT INTO `tblDockerSample` VALUES ('John'),('Erika'),('Dennis');
+INSERT INTO `mysqldb`.`tblDockerSample` VALUES ('John'),('Erika'),('Dennis');
 /*!40000 ALTER TABLE `tblDockerSample` ENABLE KEYS */;
 UNLOCK TABLES;

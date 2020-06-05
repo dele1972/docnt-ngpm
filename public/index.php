@@ -10,9 +10,10 @@
   <head>
     <meta charset="utf-8"/>
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Hello Docker</title>
     <meta name="description" content="Testpage for nginx/php/mariaDB environment with Docker">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Hello Docker</title>
   </head>
   <body>
     <h1>Hello, <?= $value ?>!</h1>
@@ -26,5 +27,7 @@
     <!-- Test url parameters are sent to php too -->
     <h2>URL Parameters</h2>
     <p><? print_r ($_GET); ?></p>
+    <h2>PHP Info</h2>
+    <p><a href="test.php" target="_self">Show PHP Info</a></p>
   </body>
 </html>
