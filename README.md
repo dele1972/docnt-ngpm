@@ -39,9 +39,10 @@ Docker Compose configuration files for [nginx](https://unit.nginx.org/)-[php](ht
 
 | Service | Docker name | Version | Port |
 | --- | --- | --- | --- |
-| **nginx** | web | [1.15.3-alpine](https://github.com/docker-library/repo-info/blob/master/repos/nginx/local/1.15-alpine.md) | 80 |
+| **nginx** | web | [1.15.3-alpine](https://github.com/docker-library/repo-info/blob/master/repos/nginx/local/1.15-alpine.md) | [80](http://localhost/) |
 | **php** | php-fpm | 7.2-fpm-alpine | - |
 | **mariaDB** | mysql | 10.3.9 | 3306 |
+| **[phpMyAdmin](https://github.com/phpmyadmin/docker)** | phpmyadmin | [5.0.2](https://hub.docker.com/layers/phpmyadmin/phpmyadmin/5.0.2/images/sha256-46dfe47ca8d3a172e7a203049bd33f516b179dc4a7205a88a97ba0bf9fc94c11?context=explore) | [8181](http://localhost:8181) |
 
 ¯\\\_(ツ)\_/¯
 
@@ -52,7 +53,7 @@ Docker Compose configuration files for [nginx](https://unit.nginx.org/)-[php](ht
 
 change DB Password on `docker/docker-compose.yml`, line 46:
 
-   `MYSQL_PASSWORD=secret`
+* `MYSQL_PASSWORD=secret`
 
 ---
 <a name="services"></a>
