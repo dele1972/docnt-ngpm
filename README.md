@@ -1,6 +1,19 @@
 # docnt-ngpm
 Docker Compose configuration files for [nginx](https://unit.nginx.org/)-[php](https://www.php.net/)-[mariadb](https://mariadb.org/) container
 
+ToDos:
+- [ ] Add/mark Optional Service (like phpmyadmin) / Optional Option (addon of a Service)
+- [ ] check running mysql and phpmyadmin lonely
+- [ ] add ssl
+- [ ] add xdebug
+- [ ] add phpunit
+- [ ] add node
+   - [ ] add browser sync
+   - [ ] add node-sass
+- [ ] add selenium
+- [ ] add cypress
+- [ ] add python/django (extra project?)
+
 <a name="toc"></a>
 
 ## Table of Content
