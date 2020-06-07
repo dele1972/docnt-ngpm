@@ -2,8 +2,8 @@
 Docker Compose configuration files for [nginx](https://unit.nginx.org/)-[php](https://www.php.net/)-[mariadb](https://mariadb.org/) container
 
 ToDos:
-- [ ] Add/mark Optional Service (like phpmyadmin) / Optional Option (addon of a Service)
-- [ ] check running mysql and phpmyadmin lonely
+- [x] Add/mark Optional Service (like phpmyadmin) / Optional Option (addon of a Service)
+- [x] check running mysql and phpmyadmin lonely
 - [ ] add ssl
 - [ ] add xdebug
 - [ ] add phpunit
@@ -23,7 +23,8 @@ ToDos:
 1. [ToDo (before first time running of `docker-compose`)](#todo-before-first-run)
 1. [Services](#services)
    * [mysql](#services_mysql)
-   * [Why is the encoding set to `utf8mb4` and not to `UTF-8`?](#services_mysql_why-utf8mb4)
+      * [Why is the encoding set to `utf8mb4` and not to `UTF-8`?](#services_mysql_why-utf8mb4)
+   * [Optional Service: phpMyAdmin](#services_phpmyadmin)
 1. [see also](#see-also)
    * [Docker Installation (Linux)](#see-also_docker-installation)
    * [Some command line actions to 'admin'](#see-also_command-line-actions)
@@ -87,6 +88,12 @@ change DB Password on `docker/docker-compose.yml`, line 46:
 * MySQL decided that UTF-8 can only hold 3 bytes per character (as it's defined as an alias of utf8mb3)
 * MySQL 5.5.3 introduced utf8mb4 - 4-byte utf8 encoding
 * see: https://www.eversql.com/mysql-utf8-vs-utf8mb4-whats-the-difference-between-utf8-and-utf8mb4/
+
+<a name="services_phpmyadmin"></a>
+
+### Optional Service: phpMyAdmin
+
+Decomment the `phpmyadmin` section of the `docker-compose.yml` file to use phpMyAdmin. By this configuration phpMyAdmin will base on the `mysql` Service and manage a maria DB. Currently the `apache` Variant will be used. That means everything needed to work will be included (an Apache Web-Server and PHP Instance). Because of that you are able to comment all other Services except `mysql` and `phpmyadmin` to get only a mysql Server with a phpMyAdmin Administration panel.
 
 ---
 <a name="see-also"></a>

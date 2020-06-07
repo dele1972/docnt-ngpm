@@ -52,11 +52,18 @@ services:
       # decomment the following line to store DB persistant on local ../data/mysql folder
       # - ../data/mysql:/var/lib/mysql
 
-  phpmyadmin:
-    build:
-      context: ./phpmyadmin
-    ports:
-      - 8181:80
-    environment:
-      - "PMA_HOST=mysql"
-      - "PMA_PORT=3306"
+  #
+  # Optional Service: decomment this section to enable phpMyAdmin
+  #
+  # phpmyadmin:
+  #   build:
+  #     context: ./phpmyadmin
+  #   # Map port 8181 on the host to port 80 inside the container
+  #   ports:
+  #     - "8181:80"
+  #   # Pass a list of environment variables to the container - set "mysql" container as host
+  #   environment:
+  #     - "PMA_HOST=mysql"
+  #   # Wait for "mysql" container to start first
+  #   depends_on: 
+  #     - mysql
