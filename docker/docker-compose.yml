@@ -9,11 +9,15 @@ services:
   php-fpm:
     build:
       # context points to (local) folder which contains the Dockerfile for this container
-      context: ./php-fpm
+      context:
+        ./php-fpm
+      args: 
+        - WITH_XDEBUG=false
     volumes:
       #mount volumes -> HOST-Path:CONTAINER-Path
-      - ../public:/var/www
-
+      - ../public:/var/www:rw
+      - ../log:/var/log:rw
+  
   web:
     build:
       context: ./web
@@ -29,8 +33,6 @@ services:
     ports:
       - "80:80"
       - "443:443"
-    #command: [nginx-debug, '-g', 'daemon off;']
-    #command: [nginx-debug]
 
   mysql:
     build:

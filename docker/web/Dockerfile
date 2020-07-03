@@ -13,4 +13,5 @@ FROM nginx:1.15.3-alpine
 CMD ["nginx"]
 
 # Let the container listen on port 80 and 443
-EXPOSE 80 443
+EXPOSE "80" "443"
+# EXPOSE "9001"

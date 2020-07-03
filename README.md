@@ -5,7 +5,7 @@ ToDos:
 - [x] Add/mark Optional Service (like phpmyadmin) / Optional Option (addon of a Service)
 - [x] check running mysql and phpmyadmin lonely
 - [ ] add ssl
-- [ ] add xdebug
+- [x] add xdebug
 - [ ] add phpunit
 - [ ] add node
    - [ ] add browser sync
@@ -24,6 +24,8 @@ ToDos:
 1. [Services](#services)
    * [mysql](#services_mysql)
       * [Why is the encoding set to `utf8mb4` and not to `UTF-8`?](#services_mysql_why-utf8mb4)
+   * [php](#services_php)
+      * [Optional Package: xDebug](#services_php_optional-package-xdebug)
    * [Optional Service: phpMyAdmin](#services_phpmyadmin)
 1. [see also](#see-also)
    * [Docker Installation (Linux)](#see-also_docker-installation)
@@ -44,7 +46,7 @@ ToDos:
 | Key | Value |
 | --- | --- |
 | **Phys. Machine** | Notebook, Samsung ATIV Book 9, 8GB RAM|
-| **OS** | Windows 10 (Home) |
+| **OS** | ~~Windows 10 (Home)~~ → Ubuntu 20.04 |
 | **Docker Toolbox** | [18.03.0-ce](https://github.com/docker/toolbox/releases/tag/v18.03.0-ce) (VirtualBox 5.2.8 r121009, Qt5.6.2) |
 
 <a name="my-setup_services"></a>
@@ -65,7 +67,7 @@ ToDos:
 
 ## ToDo (before first time running of `docker-compose`) [↸](#toc)
 
-change DB Password on `docker/docker-compose.yml`, line 46:
+change DB Password on `docker/docker-compose.yml`, line 48:
 
 * `MYSQL_PASSWORD=secret`
 
@@ -88,6 +90,46 @@ change DB Password on `docker/docker-compose.yml`, line 46:
 * MySQL decided that UTF-8 can only hold 3 bytes per character (as it's defined as an alias of utf8mb3)
 * MySQL 5.5.3 introduced utf8mb4 - 4-byte utf8 encoding
 * see: https://www.eversql.com/mysql-utf8-vs-utf8mb4-whats-the-difference-between-utf8-and-utf8mb4/
+
+<a name="services_php"></a>
+
+### php
+
+Because I once read in a tutorial that [php-fpm](https://php-fpm.org/) is the slimmest PHP version, I decided to use this implementation as well - without questioning or validating it...
+
+<a name="services_php_optional-package-xdebug"></a>
+
+#### Optional Package: xDebug
+
+[xDebug](https://xdebug.org/) v2.9.6
+
+Activate or deactivate this package by setting `WITH_XDEBUG=true` in `php-fpm` section of the `docker-compose.yml`.
+
+##### VS Code Settings
+
+needed extension: PHP Debug >= v1.13.0 (Felix Becker)
+
+Settings (`.vscode/launch.json`)
+```json
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Listen for XDebug",
+            "type": "php",
+            "request": "launch",
+            "hostname": "172.17.0.1",
+            "port": 9001,
+            "pathMappings": {
+                "/var/www/": "${workspaceFolder}/public/"
+            }
+        }
+    ]
+}
+```
 
 <a name="services_phpmyadmin"></a>
 
@@ -136,6 +178,7 @@ my corresponding [Blog-Article](http://mysolutions.blog.lederich.de/2018/10/03/e
 | `docker-compose up -d` | **start containers** (as deamon) |
 | `docker-compose logs --follow mysql` | **show logs for mysql** service (`--follow` permanently) |
 | `docker exec -it docker_mysql_1 bash` | start **mysql bash** (docker) |
+| `docker exec -it docker_php-fpm_1 hostname -i` | **get IP Address of a container** |
 | `docker system df` | **List images and containers** |
 | `docker ps -aq -f status=exited \| xargs -r docker rm` | **remove all docker container** |
 | `docker system prune -a` | **remove** any stopped **containers and all** unused **images** |

@@ -24,10 +24,15 @@
     	<?php endforeach; ?>
     </ul>
     <p>With this greetings we will see that nginx/php/mariaDB will working properly in a Docker environment 🤗</p>
+
     <!-- Test url parameters are sent to php too -->
     <h2>URL Parameters</h2>
     <p><? print_r ($_GET); ?></p>
+
     <h2>PHP Info</h2>
     <p><a href="test.php" target="_self">Show PHP Info</a></p>
+
+    <h2>xDebug Testpage</h2>
+    <p><a href="xdebug_test.php?urlparam=something" target="_self">Show xDebug Testpage</a></p>
   </body>
 </html>
