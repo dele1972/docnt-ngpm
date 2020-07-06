@@ -4,15 +4,15 @@ Docker Compose configuration files for [nginx](https://unit.nginx.org/)-[php](ht
 ToDos:
 - [x] Add/mark Optional Service (like phpmyadmin) / Optional Option (addon of a Service)
 - [x] check running mysql and phpmyadmin lonely
-- [ ] add ssl
 - [x] add xdebug
 - [ ] add phpunit
 - [ ] add node
    - [ ] add browser sync
    - [ ] add node-sass
-- [ ] add selenium
 - [ ] add cypress
+- [ ] add ssl
 - [ ] add python/django (extra project?)
+- [ ] add selenium
 
 <a name="toc"></a>
 
